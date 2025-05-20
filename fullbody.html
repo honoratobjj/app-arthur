@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullbody</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #1f1f1f;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .treino-btn {
+      background-color: #333;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #0ff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .treino-btn:hover {
+      background-color: #444;
+    }
+
+    .user-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .user-photo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0ff;
+    }
+
+    .user-name {
+      margin-top: 5px;
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+
+    main {
+      flex: 1;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: slideUp 0.5s ease-in-out;
+    }
+
+    .video-container {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 1rem;
+      text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    iframe {
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+    }
+
+    .description {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+
+    .next-btn {
+      padding: 0.6rem 1.2rem;
+      background-color: #0ff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .next-btn:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #1f1f1f;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #bbb;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes slideUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="cliente.html">
+        <div class="treino-btn">Treino</div>
+    </a>
+    <div class="user-profile">
+      <img src="https://via.placeholder.com/48" alt="Foto" class="user-photo">
+      <div class="user-name">João Silva</div>
+    </div>
+  </header>
+
+  <main>
+    <h1 style="font-size: 1.2rem; margin-bottom: 1rem;">Treino Fullbody</h1>
+    <div class="video-container" id="videoPlayer">
+      <!-- Vídeo dinâmico será inserido aqui pelo JS -->
+    </div>
+    <button class="next-btn" onclick="proximoVideo()">Próximo Vídeo</button>
+  </main>
+
+  <footer>
+    <p>Descanse de 30 a 60 segundos entre as séries.</p>
+    <p>Use cargas seguras que você consiga controlar com boa execução.</p>
+  </footer>
+
+  <script>
+    const videos = [
+      {
+        src: "https://www.youtube.com/embed/ddlpVrdeGDk?controls=1",
+        title: "20 minutos de esteira ou bike",
+        desc: "Faça um estímulo leve, respirando pelo nariz. Pode ser feito no início ou final do treino."
+      },
+      {
+        src: "https://www.youtube.com/embed/Dp0kWqdUGGw?controls=1",
+        title: "Prancha abdominal isométrica",
+        desc: "3 Séries de 30 Segundos"
+      },
+      {
+        src: "https://www.youtube.com/embed/UPRqkjLgsbQ?controls=1",
+        title: "Cadeira Extensora",
+        desc: "3 Séries de 15 Repetições"
+      },
+      {
+        src: "https://www.youtube.com/embed/Xlbg_GsfQTU?controls=1",
+        title: "Leg Press",
+        desc: "3 Séries de 10 a 15 Repetições"
+      },
+      {
+        src: "https://www.youtube.com/embed/nekda0mvRJY?controls=1",
+        title: "Cadeira Flexora",
+        desc: "3 Séries de 10 a 15 Repetições"
+      },
+      {
+        src: "https://www.youtube.com/embed/U56_vpsVfm0?controls=1",
+        title: "Supino Máquina",
+        desc: "3 Séries de 15 Repetições"
+      },
+      {
+        src: "https://www.youtube.com/embed/gaofKUqmjbQ?controls=1",
+        title: "Desenvolvimento Ombro Máquina",
+        desc: "3 Séries de 15 Repetições"
+      },
+      {
+        src: "https://www.youtube.com/embed/SJrz_pMKVBU?controls=1",
+        title: "Tríceps Pulley Corda",
+        desc: "3 Séries de 15 Repetições"
+      },
+      {
+        src: "https://www.youtube.com/embed/6CLqqw8KtDk?controls=1",
+        title: "Puxada Pela Frente",
+        desc: "3 Séries de 15 Repetições"
+      },
+      {
+        src: "https://www.youtube.com/embed/K4XwZ0ptUUA?controls=1",
+        title: "Bicéps Rosca Direta",
+        desc: "3 Séries de 15 Repetições"
+      },
+    ];
+
+    let index = 0;
+
+    function renderVideo() {
+      const player = document.getElementById("videoPlayer");
+      const video = videos[index];
+      player.innerHTML = `
+        <iframe src="${video.src}" frameborder="0" allowfullscreen></iframe>
+        <h2 style="margin-top: 0.8rem">${video.title}</h2>
+        <p class="description">${video.desc}</p>
+      `;
+    }
+
+    function proximoVideo() {
+      if (index < videos.length - 1) {
+        index++;
+        renderVideo();
+      } else {
+        alert("Parabéns! Você completou o treino.");
+      }
+    }
+
+    window.onload = renderVideo;
+  </script>
+</body>
+</html>
