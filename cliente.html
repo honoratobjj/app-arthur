@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OCA App</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: url(../app-arthur/imagens/programs-3.jpg) no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeDown 0.6s ease-in-out;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    nav div {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    nav div:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    .user-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .foto-container {
+      position: relative;
+      width: 50px;
+      height: 50px;
+    }
+
+    .foto-container input[type="file"] {
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .foto-preview {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      transition: transform 0.3s ease;
+    }
+
+    .foto-preview:hover {
+      transform: scale(1.05);
+    }
+
+    .user-name {
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .user-name:hover {
+      color: #0ff;
+    }
+
+    main.painel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      animation: fadeInUp 0.8s ease;
+    }
+
+    main h1 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    main h2 {
+      font-size: 1rem;
+      color: #ddd;
+      margin-bottom: 1rem;
+    }
+
+    section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    section li {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    section li:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px) scale(1.02);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (min-width: 600px) {
+      body {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div>Plano</div>
+    </nav>
+    <div class="user-section">
+      <div class="foto-container">
+        <input type="file" accept="image/*" onchange="previewFoto(event)" />
+        <img src="https://via.placeholder.com/50" alt="Foto do usuário" class="foto-preview" id="fotoPreview" />
+      </div>
+      <a href="perfil.html" class="user-name">João Silva</a>
+    </div>
+  </header>
+
+  <main class="painel">
+    <h1>Bem vindo(a) ao seu ambiente de treino!</h1>
+    <h2>Escolha o treino</h2>
+    <section>
+      <ul>
+        <a href="#"><li>Fullbody</li></a>
+        <a href="#"><li>Split</li></a>
+        <a href="#"><li>Membros Inferiores</li></a>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    function previewFoto(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById('fotoPreview').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+
+</body>
+</html>
