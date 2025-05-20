@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login OCA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section id="login">
+            <div id="imagem"></div>
+            <div id="formulario">
+                <h1>Login</h1>
+                <p>Seja bem-vindo(a) novamente. Faça login para acessar sua conta e seu ambiente de treino!</p>
+                <form action="login.php" method="post" autocomplete="on">
+                    <div class="campo">
+                        <label for="usu">Usuário</label>
+                        <input type="email" name="usu" id="usu" autocomplete="email" required>
+                    </div>
+                    <div class="campo">
+                        <label for="sen">Senha</label>
+                        <input type="password" name="sen" id="sen" autocomplete="current-password" required>
+                    </div>
+                    <input type="submit" value="ENTRAR">
+                    <div id="loading" style="display: none; text-align: center; font-size: 0.9em; color: #777;">
+                        Carregando...
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <p id="modal-msg">Mensagem aqui</p>
+            <button onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
