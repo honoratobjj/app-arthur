@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planos de Treino</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 1rem;
+    }
+
+    .inicio-btn {
+      background-color: #0ff;
+      color: #000;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .user-photo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0ff;
+    }
+
+    .user-name {
+      margin-top: 0.3rem;
+      font-size: 0.8rem;
+      color: #0ff;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .section {
+      width: 100%;
+      max-width: 400px;
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 255, 255, 0.1);
+      text-align: center;
+    }
+
+    .section h1 {
+      color: #0ff;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #0ff;
+      padding-bottom: 0.5rem;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .btn-plan {
+      background-color: #292929;
+      color: #fff;
+      border: 2px solid transparent;
+      padding: 0.75rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-plan:hover {
+      background-color: #0ff;
+      color: #000;
+      border-color: #0ff;
+    }
+
+    .section p {
+      font-size: 0.95rem;
+      color: #ccc;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="cliente.html" class="inicio-btn">Início</a>
+    <div class="user-info">
+      <img src="../app-arthur/imagens/trainer-1.jpg" alt="Foto do usuário" class="user-photo" />
+      <div class="user-name">Arthur Vargas</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="section">
+      <h1>Musculação Masculina</h1>
+      <div class="btn-group">
+        <button class="btn-plan">Iniciante</button>
+        <button class="btn-plan">Intermediário</button>
+        <button class="btn-plan">Avançado</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h1>Musculação Feminina</h1>
+      <div class="btn-group">
+        <button class="btn-plan">Iniciante</button>
+        <button class="btn-plan">Intermediária</button>
+        <button class="btn-plan">Avançada</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h1>Musculação Personalizada</h1>
+      <p>Para saber mais, entre em contato e diga-nos o que busca.</p>
+      <button class="btn-plan" onclick="">Entre em Contato</button>
+    </div>
+  </main>
+</body>
+</html>
