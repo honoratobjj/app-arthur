@@ -16,18 +16,19 @@
       color: #fff;
       background: url(../app-arthur/imagens/pesos-de-exercicios-dumbbell-de-ferro-com-placas-extra.jpg) no-repeat center center fixed;
       background-size: cover;
-      backdrop-filter: brightness(0.8);
+      min-height: 100vh;
+      scroll-behavior: smooth;
     }
 
     header {
-      background-color: rgba(0, 0, 0, 0.7);
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.6);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 1000;
     }
 
     .inicio-btn {
@@ -38,6 +39,7 @@
       border-radius: 8px;
       text-decoration: none;
       font-size: 0.9rem;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     }
 
     .user-info {
@@ -47,43 +49,42 @@
     }
 
     .user-photo {
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid #0ff;
     }
 
     .user-name {
-      margin-top: 0.3rem;
+      margin-top: 0.4rem;
       font-size: 0.8rem;
       color: #0ff;
+      font-weight: 500;
     }
 
     main {
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       padding: 2rem 1rem;
-      backdrop-filter: brightness(0.9);
     }
 
     .section {
-      width: 100%;
+      width: 90%;
       max-width: 400px;
-      background-color: rgba(0, 0, 0, 0.75);
-      border-radius: 12px;
+      background-color: rgba(0, 0, 0, 0.65);
+      border-radius: 16px;
       padding: 1.5rem;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
       text-align: center;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 6px 16px rgba(0, 255, 255, 0.15);
     }
 
     .section h1 {
+      font-size: 1.4rem;
       color: #0ff;
-      font-size: 1.3rem;
       margin-bottom: 1rem;
       border-bottom: 1px solid #0ff;
       padding-bottom: 0.5rem;
@@ -93,17 +94,17 @@
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
+      margin-top: 1rem;
     }
 
     .btn-plan {
-      background-color: #292929;
+      background-color: #1a1a1a;
       color: #fff;
-      border: 2px solid transparent;
-      padding: 0.75rem;
+      border: 1px solid transparent;
+      padding: 0.8rem;
       font-size: 1rem;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+      border-radius: 10px;
+      transition: 0.3s ease;
       cursor: pointer;
     }
 
@@ -111,6 +112,7 @@
       background-color: #0ff;
       color: #000;
       border-color: #0ff;
+      transform: scale(1.03);
     }
 
     .section p {
@@ -118,6 +120,17 @@
       color: #ccc;
       font-style: italic;
       margin-bottom: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      .section h1 {
+        font-size: 1.2rem;
+      }
+
+      .btn-plan {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+      }
     }
   </style>
 </head>
